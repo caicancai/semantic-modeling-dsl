@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <defs>
+    <style>.title{font:700 32px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#111827}.sub{font:600 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2937}.txt{font:18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#374151}.small{font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#4b5563}.view{fill:#eff6ff;stroke:#60a5fa;stroke-width:2;rx:18}.dim{fill:#ecfdf5;stroke:#34d399;stroke-width:2;rx:18}.measure{fill:#fef3c7;stroke:#f59e0b;stroke-width:2;rx:18}.field{fill:#f8fafc;stroke:#e5e7eb;stroke-width:1;rx:8}.dimField{fill:#dcfce7;stroke:#86efac;stroke-width:1;rx:8}.measureField{fill:#fffbeb;stroke:#fcd34d;stroke-width:1;rx:8}.arrow{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#arrow)}</style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="1400" height="820" fill="#f8fafc"/>
+  <text x="700" y="58" text-anchor="middle" class="title">Read View 拆分出 Dimension 和 Measure</text>
+  <text x="700" y="94" text-anchor="middle" class="txt">同一个业务对象里的字段，在分析中会承担不同职责。</text>
+
+  <rect x="70" y="175" width="350" height="440" class="view"/>
+  <text x="245" y="215" text-anchor="middle" class="sub">Read View</text>
+  <text x="245" y="245" text-anchor="middle" class="small">closed_ticket</text>
+  <g transform="translate(110,285)">
+    <rect class="field" width="270" height="34"/><text x="135" y="23" text-anchor="middle" class="small">ticket_id</text>
+    <rect y="44" class="field" width="270" height="34"/><text x="135" y="67" text-anchor="middle" class="small">tenant_id</text>
+    <rect y="88" class="field" width="270" height="34"/><text x="135" y="111" text-anchor="middle" class="small">closed_at</text>
+    <rect y="132" class="field" width="270" height="34"/><text x="135" y="155" text-anchor="middle" class="small">close_reason</text>
+    <rect y="176" class="field" width="270" height="34"/><text x="135" y="199" text-anchor="middle" class="small">resolution_seconds</text>
+    <rect y="220" class="field" width="270" height="34"/><text x="135" y="243" text-anchor="middle" class="small">agent_id</text>
+  </g>
+
+  <path d="M440 330 C500 300 540 280 600 255" class="arrow"/>
+  <path d="M440 465 C500 500 540 535 600 565" class="arrow"/>
+
+  <rect x="610" y="155" width="330" height="250" class="dim"/>
+  <text x="775" y="195" text-anchor="middle" class="sub">Dimensions</text>
+  <text x="775" y="225" text-anchor="middle" class="small">描述对象，用于过滤 / 分组 / 展示</text>
+  <g transform="translate(650,260)">
+    <rect class="dimField" width="250" height="34"/><text x="125" y="23" text-anchor="middle" class="small">tenant_id</text>
+    <rect y="44" class="dimField" width="250" height="34"/><text x="125" y="67" text-anchor="middle" class="small">close_reason</text>
+    <rect y="88" class="dimField" width="250" height="34"/><text x="125" y="111" text-anchor="middle" class="small">closed_date = date(closed_at)</text>
+  </g>
+
+  <rect x="610" y="495" width="330" height="210" class="measure"/>
+  <text x="775" y="535" text-anchor="middle" class="sub">Measures</text>
+  <text x="775" y="565" text-anchor="middle" class="small">在查询上下文里聚合计算</text>
+  <g transform="translate(650,600)">
+    <rect class="measureField" width="250" height="34"/><text x="125" y="23" text-anchor="middle" class="small">closed_tickets</text>
+    <rect y="44" class="measureField" width="250" height="34"/><text x="125" y="67" text-anchor="middle" class="small">average_resolution_seconds</text>
+  </g>
+
+  <rect x="1015" y="250" width="310" height="310" fill="#fff" stroke="#d1d5db" stroke-width="2" rx="18"/>
+  <text x="1170" y="290" text-anchor="middle" class="sub">组合成查询</text>
+  <text x="1050" y="340" class="txt">Dimension:</text><text x="1165" y="340" class="txt">close_reason</text>
+  <text x="1050" y="385" class="txt">Measure:</text><text x="1165" y="385" class="txt">closed_tickets</text>
+  <line x1="1050" y1="420" x2="1290" y2="420" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="1050" y="465" class="txt">SQL:</text>
+  <text x="1105" y="465" class="small">GROUP BY close_reason</text>
+  <text x="1105" y="500" class="small">COUNT(DISTINCT ticket_id)</text>
+
+  <text x="700" y="765" text-anchor="middle" class="txt">Dimension 决定观察角度，Measure 决定如何计算结果。</text>
+</svg>
