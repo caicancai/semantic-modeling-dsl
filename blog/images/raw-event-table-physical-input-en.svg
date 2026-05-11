@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <defs>
+    <style>
+      .title{font:700 34px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#111827}.sub{font:600 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2937}.txt{font:18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#374151}.small{font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#4b5563}.panel{fill:#fff;stroke:#d1d5db;stroke-width:2;rx:22}.table{fill:#eff6ff;stroke:#60a5fa;stroke-width:2;rx:18}.row{fill:#f8fafc;stroke:#e5e7eb;stroke-width:1;rx:8}.note{fill:#fefce8;stroke:#facc15;stroke-width:2;rx:16}.warn{fill:#fef2f2;stroke:#f87171;stroke-width:2;rx:16}.arrow{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="1400" height="820" fill="#f8fafc"/>
+  <text x="700" y="58" text-anchor="middle" class="title">Raw Event Table: raw_events</text>
+  <text x="700" y="94" text-anchor="middle" class="txt">It records business facts, but it is not a stable analytics interface.</text>
+
+  <rect x="70" y="145" width="430" height="585" class="table"/>
+  <text x="285" y="185" text-anchor="middle" class="sub">raw_events</text>
+  <text x="285" y="215" text-anchor="middle" class="small">one row = one business event</text>
+  <g transform="translate(110,245)">
+    <rect class="row" width="350" height="36"/><text x="18" y="24" class="txt">event_id</text><text x="200" y="24" class="small">unique event ID</text>
+    <rect y="44" class="row" width="350" height="36"/><text x="18" y="68" class="txt">tenant_id</text><text x="200" y="68" class="small">tenant / organization</text>
+    <rect y="88" class="row" width="350" height="36"/><text x="18" y="112" class="txt">event_type</text><text x="200" y="112" class="small">event type</text>
+    <rect y="132" class="row" width="350" height="36"/><text x="18" y="156" class="txt">event_time</text><text x="200" y="156" class="small">event time</text>
+    <rect y="176" class="row" width="350" height="36"/><text x="18" y="200" class="txt">actor_id</text><text x="200" y="200" class="small">actor</text>
+    <rect y="220" class="row" width="350" height="36"/><text x="18" y="244" class="txt">subject_type</text><text x="200" y="244" class="small">subject type</text>
+    <rect y="264" class="row" width="350" height="36"/><text x="18" y="288" class="txt">subject_id</text><text x="200" y="288" class="small">subject ID</text>
+    <rect y="308" class="row" width="350" height="36"/><text x="18" y="332" class="txt">properties</text><text x="200" y="332" class="small">JSON properties</text>
+    <rect y="352" class="row" width="350" height="36"/><text x="18" y="376" class="txt">received_at</text><text x="200" y="376" class="small">received time</text>
+  </g>
+
+  <rect x="610" y="160" width="290" height="168" class="note"/>
+  <text x="755" y="198" text-anchor="middle" class="sub">Good as a fact log</text>
+  <text x="640" y="238" class="txt">• append business events</text>
+  <text x="640" y="272" class="txt">• cover many scenarios</text>
+  <text x="640" y="306" class="txt">• preserve raw facts</text>
+
+  <rect x="610" y="390" width="290" height="200" class="warn"/>
+  <text x="755" y="428" text-anchor="middle" class="sub">Poor as an analytics interface</text>
+  <text x="640" y="468" class="txt">• event types are mixed</text>
+  <text x="640" y="502" class="txt">• business fields hide in JSON</text>
+  <text x="640" y="536" class="txt">• one row is not a business object</text>
+  <text x="640" y="570" class="txt">• metric logic is unstable</text>
+
+  <path d="M930 245 C980 245 1010 245 1060 245" class="arrow"/>
+  <path d="M930 492 C980 492 1010 492 1060 492" class="arrow"/>
+
+  <rect x="1065" y="180" width="270" height="130" class="panel"/>
+  <text x="1200" y="218" text-anchor="middle" class="sub">System facts</text>
+  <text x="1095" y="258" class="txt">What happened?</text>
+  <text x="1095" y="292" class="txt">Record it first.</text>
+
+  <rect x="1065" y="420" width="270" height="150" class="panel"/>
+  <text x="1200" y="458" text-anchor="middle" class="sub">Modeling need</text>
+  <text x="1095" y="498" class="txt">Turn raw facts into</text>
+  <text x="1095" y="532" class="txt">stable business objects.</text>
+
+  <text x="700" y="770" text-anchor="middle" class="txt">Next: use a Read View to read a stable business object from raw_events.</text>
+</svg>

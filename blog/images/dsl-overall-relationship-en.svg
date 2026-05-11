@@ -1,0 +1,87 @@
+<svg width="1500" height="920" viewBox="0 0 1500 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1500" height="920" fill="#FFFFFF"/>
+  <text x="750" y="52" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="30" font-weight="700" fill="#111827">Semantic Modeling DSL: Overall Relationship</text>
+  <text x="750" y="86" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" fill="#4B5563">Starting from raw events, Views, semantic fields, derived Views, and filter mapping compile into SQL.</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#4B5563"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#2563EB"/>
+    </marker>
+  </defs>
+
+  <!-- raw -->
+  <rect x="70" y="170" width="235" height="160" rx="22" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="2"/>
+  <text x="188" y="210" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#111827">raw_events</text>
+  <text x="188" y="243" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#4B5563">physical input</text>
+  <text x="100" y="278" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">event_type</text>
+  <text x="100" y="302" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">event_time</text>
+  <text x="205" y="278" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">subject_id</text>
+  <text x="205" y="302" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">properties</text>
+
+  <!-- read view -->
+  <rect x="390" y="145" width="300" height="210" rx="24" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <text x="540" y="188" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#1E3A8A">Read View</text>
+  <text x="540" y="218" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#374151">closed_ticket</text>
+  <text x="420" y="255" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">filter: event_type</text>
+  <text x="420" y="280" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">select stable fields</text>
+  <text x="420" y="305" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">normalize properties</text>
+  <text x="420" y="330" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">define business object</text>
+
+  <!-- semantic fields -->
+  <rect x="780" y="120" width="330" height="260" rx="24" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+  <text x="945" y="163" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#065F46">Semantic Fields</text>
+  <rect x="815" y="195" width="260" height="48" rx="14" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <text x="945" y="226" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#065F46">dimension: close_reason</text>
+  <rect x="815" y="257" width="260" height="48" rx="14" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <text x="945" y="288" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#065F46">time dimension: closed_date</text>
+  <rect x="815" y="319" width="260" height="48" rx="14" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <text x="945" y="350" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#065F46">measure: closed_tickets</text>
+
+  <!-- derived views -->
+  <rect x="500" y="485" width="330" height="180" rx="24" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+  <text x="665" y="528" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#9A3412">Derived Views</text>
+  <text x="530" y="565" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">explicit projection</text>
+  <text x="530" y="590" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">select needed fields</text>
+  <text x="530" y="615" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">derive new columns</text>
+  <text x="530" y="640" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">branch instead of inherit</text>
+
+  <rect x="910" y="485" width="330" height="180" rx="24" fill="#FFFBEB" stroke="#D97706" stroke-width="2"/>
+  <text x="1075" y="528" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#92400E">Aggregate Derived View</text>
+  <text x="940" y="565" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">group_by</text>
+  <text x="940" y="590" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">measures</text>
+  <text x="940" y="615" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">derived_columns</text>
+  <text x="940" y="640" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">window calculations</text>
+
+  <!-- filters -->
+  <rect x="80" y="500" width="300" height="150" rx="22" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2"/>
+  <text x="230" y="540" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#4C1D95">Filters</text>
+  <text x="110" y="575" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">view filter</text>
+  <text x="110" y="600" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">query filter</text>
+  <text x="110" y="625" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#374151">filter mapping</text>
+
+  <!-- compiler -->
+  <rect x="470" y="745" width="560" height="95" rx="22" fill="#F9FAFB" stroke="#4B5563" stroke-width="2"/>
+  <text x="750" y="785" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#111827">Compiler</text>
+  <text x="750" y="816" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#374151">resolve views · expand measures · map filters · lower time grain · generate SQL</text>
+
+  <rect x="1130" y="745" width="250" height="95" rx="22" fill="#ECFEFF" stroke="#0891B2" stroke-width="2"/>
+  <text x="1255" y="785" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#155E75">Database</text>
+  <text x="1255" y="816" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#374151">executes SQL</text>
+
+  <!-- arrows -->
+  <path d="M305 250 L390 250" stroke="#4B5563" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M690 250 L780 250" stroke="#4B5563" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M540 355 C540 420 610 430 650 485" stroke="#4B5563" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M945 380 C945 430 1000 445 1060 485" stroke="#4B5563" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M380 575 C435 575 445 575 500 575" stroke="#7C3AED" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <path d="M665 665 C665 710 710 710 735 745" stroke="#4B5563" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1075 665 C1075 720 880 718 785 745" stroke="#4B5563" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1030 792 L1130 792" stroke="#4B5563" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="345" y="234" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" fill="#6B7280">read</text>
+  <text x="735" y="234" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" fill="#6B7280">classify</text>
+  <text x="445" y="560" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" fill="#7C3AED">map filters</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs>
+    <style>.title{font:700 32px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#111827}.sub{font:600 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2937}.txt{font:18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#374151}.small{font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#4b5563}.box{fill:#fff;stroke:#d1d5db;stroke-width:2;rx:18}.raw{fill:#eff6ff;stroke:#60a5fa;stroke-width:2;rx:18}.step{fill:#fefce8;stroke:#facc15;stroke-width:2;rx:18}.view{fill:#ecfdf5;stroke:#34d399;stroke-width:2;rx:18}.field{fill:#f8fafc;stroke:#e5e7eb;stroke-width:1;rx:8}.out{fill:#dcfce7;stroke:#86efac;stroke-width:1;rx:8}.arrow{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#arrow)}</style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="1400" height="760" fill="#f8fafc"/>
+  <text x="700" y="58" text-anchor="middle" class="title">Deriving a Read View from raw_events</text>
+  <text x="700" y="94" text-anchor="middle" class="txt">A Read View narrows generic events into a stable business read model.</text>
+
+  <rect x="60" y="160" width="300" height="430" class="raw"/>
+  <text x="210" y="198" text-anchor="middle" class="sub">raw_events</text>
+  <text x="210" y="228" text-anchor="middle" class="small">generic event stream</text>
+  <g transform="translate(95,260)">
+    <rect class="field" width="230" height="32"/><text x="115" y="22" text-anchor="middle" class="small">event_type</text>
+    <rect y="42" class="field" width="230" height="32"/><text x="115" y="64" text-anchor="middle" class="small">subject_id</text>
+    <rect y="84" class="field" width="230" height="32"/><text x="115" y="106" text-anchor="middle" class="small">event_time</text>
+    <rect y="126" class="field" width="230" height="32"/><text x="115" y="148" text-anchor="middle" class="small">tenant_id</text>
+    <rect y="168" class="field" width="230" height="32"/><text x="115" y="190" text-anchor="middle" class="small">properties.close_reason</text>
+    <rect y="210" class="field" width="230" height="32"/><text x="115" y="232" text-anchor="middle" class="small">properties.resolution_seconds</text>
+  </g>
+
+  <path d="M380 375 C430 375 455 375 505 375" class="arrow"/>
+  <rect x="510" y="190" width="330" height="370" class="step"/>
+  <text x="675" y="228" text-anchor="middle" class="sub">Read View declares</text>
+  <text x="540" y="280" class="txt">1. filter events</text>
+  <text x="565" y="312" class="small">event_type = 'ticket_closed'</text>
+  <text x="540" y="365" class="txt">2. stabilize fields</text>
+  <text x="565" y="397" class="small">subject_id → ticket_id</text>
+  <text x="540" y="450" class="txt">3. hide raw details</text>
+  <text x="565" y="482" class="small">properties.* → stable fields</text>
+
+  <path d="M860 375 C910 375 935 375 985 375" class="arrow"/>
+  <rect x="990" y="160" width="350" height="430" class="view"/>
+  <text x="1165" y="198" text-anchor="middle" class="sub">Read View</text>
+  <text x="1165" y="228" text-anchor="middle" class="small">closed_ticket</text>
+  <g transform="translate(1030,260)">
+    <rect class="out" width="270" height="32"/><text x="135" y="22" text-anchor="middle" class="small">ticket_id</text>
+    <rect y="42" class="out" width="270" height="32"/><text x="135" y="64" text-anchor="middle" class="small">tenant_id</text>
+    <rect y="84" class="out" width="270" height="32"/><text x="135" y="106" text-anchor="middle" class="small">closed_at</text>
+    <rect y="126" class="out" width="270" height="32"/><text x="135" y="148" text-anchor="middle" class="small">close_reason</text>
+    <rect y="168" class="out" width="270" height="32"/><text x="135" y="190" text-anchor="middle" class="small">resolution_seconds</text>
+    <rect y="210" class="out" width="270" height="32"/><text x="135" y="232" text-anchor="middle" class="small">agent_id</text>
+  </g>
+
+  <text x="700" y="690" text-anchor="middle" class="txt">Downstream models no longer parse raw_events or properties directly; they build on closed_ticket.</text>
+</svg>
