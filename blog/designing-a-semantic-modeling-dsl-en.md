@@ -6,7 +6,7 @@ But what if we start with only one raw event table?
 
 A raw event table is like an operational ledger. It records many things that happened in the business: an order was created, a payment succeeded, a support ticket was closed, a refund was requested. It stores facts, but it is not a stable interface for analysis.
 
-This article starts from that lower-level problem: how can we progressively turn a raw event table into a stable analytical modeling DSL?
+This article starts from that lower-level problem: how can we use a DSL to turn a raw event table into stable analytical interfaces?
 
 > The core problem is not “how do we give one table more field names?” It is: how do we turn raw facts into stable business objects, so downstream analysis no longer needs to rediscover the raw event structure every time?
 

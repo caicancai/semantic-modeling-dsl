@@ -48,5 +48,5 @@
   <text x="1105" y="465" class="small">GROUP BY close_reason</text>
   <text x="1105" y="500" class="small">COUNT(DISTINCT ticket_id)</text>
 
-  <text x="700" y="765" text-anchor="middle" class="txt">Dimension Dimensions decide how to slice; Measures decide how to calculate.</text>
+  <text x="700" y="765" text-anchor="middle" class="txt">Dimensions decide how to slice; measures decide how to calculate.</text>
 </svg>
